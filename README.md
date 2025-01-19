@@ -4,7 +4,7 @@ This is a project that is split into two parts: one for the functionality of the
 By the end of the project, I hope to be able to get a solid grasp on JavaScript fundamentals which I will be using later on to create a basic website that will be able to prove my knowledge of the fundamentals. While I have done this course and other programming endeavors before, I am still relearning what I have put aside and this is just the beginning to my dedicated and successful programming career (hopefully...).
 
 
-getComputerChoice function pseudocode
+getComputerChoice function pseudo code
 Computer gets a random choice between rock, paper, or scissors when function is called:
 Call math random between number 1 to 3
 If number is 1
@@ -15,3 +15,12 @@ Else if number is 3
   return "scissor"
 Else
   log that something is wrong (only 3 numbers should be returned from math random)
+
+getHumanChoice function pseudo code
+Prompts the player to pick and choose any of the valid choices (Rock, Paper, or Scissor):
+Prompt player to choose between rock, paper, or scissor
+Create a variable that turns the input into all lowercase
+If input is 'rock', 'paper', or 'scissor'
+  return input;
+Else 
+  log that the input is not a valid choice

@@ -24,3 +24,16 @@ If input is 'rock', 'paper', or 'scissor'
   return input;
 Else 
   log that the input is not a valid choice
+
+PlayRound function pseudo code
+Create a function that starts a round and increments the winner's score:
+Call playRound with the parameters of human choice and computer choice
+If human choice is 'rock' and computer choice is 'scissor" or human choice is 'paper' and computer choice is 'rock' or human choice is 'scissor' and computer choice is 'paper'
+  increase humanScore by 1
+  log that the user has won
+Else if computerChoice is 'rock' and humanChoice is 'scissor' or computerChoice is 'paper' and humanChoice is 'rock' or computerChoice is 'scissor' and humanChoice is 'paper'
+  increase computerScore by 1
+  log that the computer has won
+Else 
+  don't increase score for both sides
+  log that it is a tie

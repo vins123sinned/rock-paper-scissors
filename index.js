@@ -49,8 +49,29 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    checkWinner();
+}
+
+function checkWinner() {
+    console.log(`Your wins: ${humanScore}`);
+    console.log(`Computer wins: ${computerScore}`);
+    console.log('...');
+    if (humanScore > computerScore) {
+        return console.log('You win!');
+    } else if (humanScore < computerScore) {
+        return console.log('You lose.');
+    } else {
+        return console.log('It was a tie')
+    }
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+playGame();

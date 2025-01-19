@@ -37,3 +37,17 @@ Else if computerChoice is 'rock' and humanChoice is 'scissor' or computerChoice 
 Else 
   don't increase score for both sides
   log that it is a tie
+
+playGame pseudo code
+Create a function that plays five rounds of game and declares winner at the end:
+When playRound is called
+Invoke a for loop that iterates five times
+  invoke the playRound function
+After the for loop is completed, check winner using the checkWinner function
+
+checkWinner function pseudo code:
+If humanScore is greater than computerScore
+  declare user the winner
+Else if computerScore is greater than humanScore
+  declare computer the winner
+Else declare tie

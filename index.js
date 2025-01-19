@@ -19,7 +19,8 @@ function getHumanChoice() {
     let choice = input.toLowerCase();
 
     if (choice === 'rock' || choice === 'paper' || 
-        choice === 'scissor') {
+        choice === 'scissor') 
+    {
         return choice;
     } else {
         console.log('That is not a valid input! Please make sure to type it correctly!');
@@ -27,8 +28,31 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    
+    if (humanChoice === 'rock' && computerChoice === 'scissor' ||
+        humanChoice === 'paper' && computerChoice === 'rock' ||
+        humanChoice === 'scissor' && computerChoice === 'paper') 
+    {
+        humanScore++;
+        return console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+    } else if (computerChoice === 'rock' && humanChoice === 'scissor' ||
+        computerChoice === 'paper' && humanChoice === 'rock' ||
+        computerChoice === 'scissor' && humanChoice === 'paper') 
+    {
+        computerScore++;
+        return console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+    } else if (humanChoice === 'rock' && computerChoice === 'rcok' ||
+        humanChoice === 'paper' && computerChoice === 'paper' ||
+        humanChoice === 'scissor' && computerChoice === 'scissor'){
+        return console.log(`It's a tie! Both chose ${humanChoice}.`);
+    } else {
+        return console.log('Error! Did you input a valid choice?');
+    }
 }
 
 let humanScore = 0;
 let computerScore = 0;
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);

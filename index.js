@@ -47,9 +47,10 @@ function checkWinner() {
 }
 
 function displayRoundResults(string) {
-    console.log(`Your wins: ${humanScore}`);
-    console.log(`Computer wins: ${computerScore}`);
     resultHeader.textContent = string;
+    humanScoreHeader.textContent = `Your Score: ${humanScore}`;
+    computerScoreHeader.textContent = `Computer Score: ${computerScore}`;
+
     if (humanScore >= 5 || computerScore >= 5) {
         checkWinner();
     }
@@ -59,12 +60,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 const choices = document.querySelectorAll('.choice');
-const resultDiv = document.querySelector('.round-result');
-const resultHeader = document.createElement('h1');
-
-resultHeader.textContent = 'Rock, paper, or scissor?';
-
-resultDiv.appendChild(resultHeader);
 
 choices.forEach(choice => {
     choice.addEventListener('click', (e) => {
@@ -73,3 +68,12 @@ choices.forEach(choice => {
         playRound(humanChoice, computerChoice);
     });
 });
+
+const resultDiv = document.querySelector('.round-result');
+const resultHeader = document.createElement('h1');
+
+const humanScoreHeader = document.querySelector('.human-score');
+const computerScoreHeader = document.querySelector('.computer-score');
+
+resultHeader.textContent = 'Rock, paper, or scissor?';
+resultDiv.appendChild(resultHeader);

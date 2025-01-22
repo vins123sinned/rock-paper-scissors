@@ -49,6 +49,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+/*
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
@@ -57,6 +58,7 @@ function playGame() {
     }
     checkWinner();
 }
+*/
 
 function checkWinner() {
     console.log(`Your wins: ${humanScore}`);
@@ -74,4 +76,10 @@ function checkWinner() {
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+const choices = document.querySelectorAll('.choice');
+
+choices.forEach(choice => {
+    choice.addEventListener('click', (e) => {
+        console.log(e.target.value);
+    })
+})

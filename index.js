@@ -43,11 +43,12 @@ function checkWinner() {
     } else {
         announceWinner.textContent = 'It was a tie';
     }
-    resultDiv.appendChild(announceWinner);
+    
+    roundResultDiv.appendChild(announceWinner);
 }
 
-function displayRoundResults(string) {
-    resultHeader.textContent = string;
+function displayRoundResults(outcome) {
+    roundResultHeader.textContent = outcome;
     humanScoreHeader.textContent = `Your Score: ${humanScore}`;
     computerScoreHeader.textContent = `Computer Score: ${computerScore}`;
 
@@ -69,11 +70,12 @@ choices.forEach(choice => {
     });
 });
 
-const resultDiv = document.querySelector('.round-result');
-const resultHeader = document.createElement('h1');
+const roundResultDiv = document.querySelector('.round-result');
+const roundResultHeader = document.createElement('h1');
+
 
 const humanScoreHeader = document.querySelector('.human-score');
 const computerScoreHeader = document.querySelector('.computer-score');
 
-resultHeader.textContent = 'Rock, paper, or scissor?';
-resultDiv.appendChild(resultHeader);
+roundResultHeader.textContent = 'Rock, paper, or scissor?';
+roundResultDiv.appendChild(roundResultHeader);

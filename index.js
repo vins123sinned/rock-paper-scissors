@@ -35,16 +35,14 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function checkWinner() {
-    const announceWinner = document.createElement('h2');
     if (humanScore > computerScore) {
-        announceWinner.textContent = 'You win!';
+        announceWinner.textContent = 'You won! Great job!';
     } else if (humanScore < computerScore) {
-        announceWinner.textContent = 'You lose.';
+        announceWinner.textContent = 'You lost, better luck next time!';
     } else {
-        announceWinner.textContent = 'It was a tie';
+        //possibly redundant, remove later if wanted
+        announceWinner.textContent = 'It was a tie, good game!';
     }
-    
-    roundResultDiv.appendChild(announceWinner);
 }
 
 function displayRoundResults(outcome) {
@@ -52,9 +50,19 @@ function displayRoundResults(outcome) {
     humanScoreHeader.textContent = `Your Score: ${humanScore}`;
     computerScoreHeader.textContent = `Computer Score: ${computerScore}`;
 
-    if (humanScore >= 5 || computerScore >= 5) {
+    // announceWinner check prevents switching winner text after game is already over
+    if ((humanScore === 5 || computerScore === 5) && !announceWinner.textContent) {
         checkWinner();
     }
+}
+
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    humanScoreHeader.textContent = `Your Score: ${humanScore}`;
+    computerScoreHeader.textContent = `Computer Score: ${computerScore}`;
+    roundResultHeader.textContent = 'Rock, paper, or scissor?';
+    announceWinner.textContent = '';
 }
 
 let humanScore = 0;
@@ -79,3 +87,10 @@ const computerScoreHeader = document.querySelector('.computer-score');
 
 roundResultHeader.textContent = 'Rock, paper, or scissor?';
 roundResultDiv.appendChild(roundResultHeader);
+
+const announceWinner = document.querySelector('.game-result');
+const restartButton = document.querySelector('.restart-button');
+
+restartButton.addEventListener('click', (e) => {
+    restartGame();
+})
